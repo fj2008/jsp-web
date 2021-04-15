@@ -19,10 +19,13 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class ="navbar navbar-expand navbar-dark bg-dark">
-		<div class= "container">
-			<a class = "navbar-brand" href="./wellcome.jsp">Home</a>
-		
+	<nav class="navbar navbar-fixed-top navbar-invberse bg-dark">
+		<div class="container">
+			<div class="collapse navbar-collapse"id="navbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a class ="navbar-brand"href="./wellcome.jsp">Home</a></li>
+				</ul>
+			</div>
 		</div>
 	</nav>
 	<div class="jumbotron">
