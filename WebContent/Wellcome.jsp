@@ -1,7 +1,31 @@
+<%@page import="java.time.LocalDateTime"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%!
-	String greeting = "Welcome to Web Shopping Mall";
+	String greeting = "웹 쇼핑몰에 오신것을 환영합니다";
 	String tagline = "Welcome to Web Market!";
+%>
+<%
+	LocalDateTime nowDateTime = LocalDateTime.now();
+	String am_pm;
+	int hour = nowDateTime.getHour();
+	int minute = nowDateTime.getMinute();
+	int second = nowDateTime.getSecond();
+	
+	
+	
+	String s_hour = (hour<10 ? "0":"")+hour;
+	String s_minute = (minute <10 ? "0" : "")+minute;
+	String s_secound = (second <10 ? "0":"")+second;
+	
+	if(hour /12 ==0){
+		am_pm = "AM";
+	}else{
+		am_pm="PM";
+		hour =hour -12;
+	}
+	
+	String CT = s_hour + ":" + s_minute + ":"+ s_secound+" " + am_pm;
+	
 %>
 
 <!DOCTYPE html>
@@ -19,15 +43,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-fixed-top navbar-invberse bg-dark">
-		<div class="container">
-			<div class="collapse navbar-collapse"id="navbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a class ="navbar-brand"href="./wellcome.jsp">Home</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<%@ include file = "header.jsp" %>
+	
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3"><%=greeting %></h1>
@@ -37,13 +54,11 @@
 		<div class ="container">
 			<div class="text-conter">
 			<h3><%=tagline %></h3>
+			<%="<p>현재 접속 시각 " + CT +"</p>" %>
 			</div>
 		</div>
 	</main>
-	<footer class="contatiner">
-		<p>&copy; WebMarket</p>
-		
-	</footer>
-		
+	
+		<%@ include file = "footer.jsp" %>
 </body>
 </html>
