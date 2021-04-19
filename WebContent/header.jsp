@@ -1,15 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<body>
-<nav class="navbar navbar-fixed-top navbar-inverse">
+<%
+	String active = request.getParameter("active");
+
+	String welcomClass = "";
+	
+	String productsClass= "";
+	if(active == null || active.equals("welcome")){
+		welcomClass = "class=\"active\"";
+				
+	}else if (active.equals("products")){
+		productsClass = "class = \"active\"";
+	}
+%>
+
+
+	<nav class="navbar navbar-fixed-top navbar-inverse">
 		<div class="container">
 			<div class="collapse navbar-collapse"id="navbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a class ="navbar-brand"href="./wellcome.jsp">Home</a></li>
-					<li><a class = "navbar-brand" href="#">메뉴1</a></li>
+					<li><%=welcomClass%><a class ="navbar-brand"href="./wellcome.jsp?active=welcome">Home</a></li>
+					<li><%=productsClass%><a class = "navbar-brand" href="./products.jsp?active=products">상품 목록</a></li>
 					<li><a class = "navbar-brand" href="#">메뉴2</a></li>
 					<li><a class = "navbar-brand" href="#">메뉴3</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	</body>
+	
