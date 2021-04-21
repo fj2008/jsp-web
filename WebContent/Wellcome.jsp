@@ -3,6 +3,7 @@
 <%!
 	String greeting = "웹 쇼핑몰에 오신것을 환영합니다";
 	String tagline = "Welcome to Web Market!";
+	
 %>
 <%
 	LocalDateTime nowDateTime = LocalDateTime.now();
@@ -25,7 +26,7 @@
 	}
 	
 	String CT = s_hour + ":" + s_minute + ":"+ s_secound+" " + am_pm;
-	
+	//시간 출력하는코드
 %>
 
 <!DOCTYPE html>
@@ -54,11 +55,11 @@
 		<div class ="container">
 			<div class="text-conter">
 			<h3><%=tagline %></h3>
-			<%="<p>현재 접속 시각 " + CT +"</p>" %>
+			<%="<p>현재 접속 시각 " + CT +"</p>" %><!-- 현제시간알려주는 코드 -->
 			</div>
 		</div>
 	</main>
-	
+	<!-- 인삿말 변수에 담에서 출력하는 코드 -->
 		<%@ include file = "footer.jsp" %>
 </body>
 </html>
