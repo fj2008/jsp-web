@@ -10,8 +10,22 @@ public class ProductRepository {
 	{
 		listOfProducts = new ArrayList<Product>();
 	}
+	//클래스의 멤버 변수로 자기 자신을 갖고 있음
+	public static ProductRepository productRepository;
+	static {
+		productRepository = new ProductRepository();
+	}
+	//클래스 멤버 변수로 선언되어있는 자기 자신(이클래스의 인스턴스)를 반환하는 메서드
 	
-	public ProductRepository() {
+	private static ProductRepository getInstance() {
+		return productRepository;
+	}
+	//접근제어자가 private 인 생성자의 의미>?
+	//클래스의 외부에서 인스턴스를 만들 수 없음
+	//클래스인스턴스를 선언해서 객체에 저장하는것이 아니라
+	//메서드에 그 클래스인스턴스의 기능을 넣어서 메서드로 그 클래스의 기능을 사용하게 만드는것
+	//이거시 싱글턴 패턴
+	private ProductRepository() {
 		Product phone = new Product("P1234", "iPhone 6s", 800000);
 		phone.setDescription("4.7-inch, 1234X750 Retina HD display, 8-megapixel isight camera");
 		phone.setManufacturer("Apple");
